@@ -3,7 +3,8 @@ package com.longnt.beecommerce.common;
 import lombok.*;
 
 import javax.persistence.Column;
-import java.util.Date;
+import javax.persistence.MappedSuperclass;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,13 +16,13 @@ public class Common {
     private Boolean isDelete;
 
     @Column(name = "created_at")
-    private Date createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "created_by")
     private String createdBy;
 
     @Column(name = "updated_at")
-    private Date updateAt;
+    private LocalDateTime updateAt;
 
     @Column(name = "updated_by")
     private String updateBy;
