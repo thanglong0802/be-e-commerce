@@ -6,14 +6,15 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+@MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
 public class Common {
-    @Column(name = "is_delete", columnDefinition = "false")
-    private Boolean isDelete;
+    @Column(name = "is_delete")
+    private Long isDelete = 0L;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
