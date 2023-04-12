@@ -1,5 +1,7 @@
 package com.longnt.beecommerce.controller;
 
+import com.longnt.beecommerce.common.InsertForm;
+import com.longnt.beecommerce.dto.CategoryAttributeResponse;
 import com.longnt.beecommerce.model.categories.CategoryAttribute;
 import com.longnt.beecommerce.service.impl.CategoryAttributeServiceImpl;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,11 @@ public class CategoryAttributeController {
     }
 
     @PostMapping("/")
-    public CategoryAttribute createCategoryAttribute(@RequestBody CategoryAttribute categoryAttribute) {
-        return categoryAttributeService.save(categoryAttribute);
+    public InsertForm createCategoryAttribute(@RequestBody InsertForm form) {
+        return categoryAttributeService.createCategoryAttribute(form);
+    }
+    @GetMapping("/getAllValue/{id}")
+    public CategoryAttributeResponse findByQuery(@PathVariable Long id){
+        return categoryAttributeService.handler(id);
     }
 }
